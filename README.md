@@ -186,3 +186,6 @@ $response->getContentType(); // application/json, text/html, text/plain, applica
 $response->getContent(); // get result body (string)
 $response->getHeaders(); // response header
 ```
+
+## LICENSE
+This project is released under the MIT licence.
