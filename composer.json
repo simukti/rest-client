@@ -1,0 +1,26 @@
+{
+    "name": "simukti/rest-client",
+    "description": "A practical PHP 7 REST API client on-top-of pecl-http.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sarjono Mukti Aji",
+            "email": "me@simukti.net",
+            "homepage": "https://simukti.net",
+            "role": "Developer"
+        }
+    ],
+    "prefer-stable": true,
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0.0",
+        "ext-mbstring": "*",
+        "ext-http": ">=3.0.0",
+        "lcobucci/jwt": ">=3.2.0,<4.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "RestClient\\": "src/RestClient"
+        }
+    }
+}
