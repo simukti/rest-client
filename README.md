@@ -14,6 +14,20 @@ A practical PHP 7 REST API client on-top-of [pecl-http](https://pecl.php.net/pac
 - [pecl-http >=3.0.0](https://pecl.php.net/package/pecl_http)
 - [mbstring](http://php.net/manual/en/book.mbstring.php)
 
+## INSTALL
+Add `simukti/rest-client` to your composer.json 
+
+```
+    "require": {
+        "simukti/rest-client": "^1.0.0"
+    }
+```
+
+OR add require via composer 
+```
+composer require simukti/rest-client@1.0.0 -vvv -o
+```
+
 ## REQUEST
 ### GET
 ```php
