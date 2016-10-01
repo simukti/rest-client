@@ -105,6 +105,7 @@ $request->setPath('/post')
 
 $httpClient = new PeclHttpClient;
 $response = $httpClient->send($request, new ApiResponse);
+```
 
 ### PUT
 ```php
