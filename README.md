@@ -15,7 +15,7 @@ A practical PHP 7 REST API client on-top-of [pecl-http](https://pecl.php.net/pac
 - [mbstring](http://php.net/manual/en/book.mbstring.php)
 
 ## INSTALL
-Add `simukti/rest-client` to your composer.json 
+Add `simukti/rest-client` to your composer.json
 
 ```
     "require": {
@@ -23,7 +23,7 @@ Add `simukti/rest-client` to your composer.json
     }
 ```
 
-OR add require via composer 
+OR add require via composer
 ```
 composer require simukti/rest-client@1.0.0 -vvv -o
 ```
@@ -89,6 +89,22 @@ $response   = new ApiResponse;
 $httpClient = new PeclHttpClient;
 $httpClient->send($request, $response);
 ```
+
+### POST (Raw Data)
+```php
+<?php
+use RestClient\HttpClient\PeclHttpClient;
+use RestClient\Request\ApiRequest;
+use RestClient\Response\ApiResponse;
+
+$request = new ApiRequest('https://httpbin.org');
+$request->setPath('/post')
+    ->setMethod(ApiRequest::METHOD_POST)
+    ->setDataRaw(json_encode(['key' => 'value1', 'key2' => [ 'subkey2.1' => 'subkey2.1 value'] ]))
+    ->addHeader('content-type', 'application/json');
+
+$httpClient = new PeclHttpClient;
+$response = $httpClient->send($request, new ApiResponse);
 
 ### PUT
 ```php
