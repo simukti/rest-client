@@ -159,5 +159,4 @@ class ApiResponse implements ResponseInterface
     {
         return $this->isServerError;
     }
-    
 }

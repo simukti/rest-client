@@ -123,7 +123,7 @@ class PeclHttpClient implements HttpClientInterface
         
         if (count($files)) {
             /* @var $requestBody Body */
-            $requestBody    = $httpRequest->getBody();
+            $requestBody   = $httpRequest->getBody();
             $preparedFiles = [];
             // file upload detected, set to multipart form
             foreach ($files as $fieldName => $filepath) {
@@ -144,6 +144,17 @@ class PeclHttpClient implements HttpClientInterface
             $requestBody->addForm($request->getData(), $preparedFiles);
             
             // immediate send multipart form request, it always include files and data
+            return $this->sendSingleRequest($httpRequest, $response);
+        }
+        
+        $dataRaw = $request->getDataRaw();
+        
+        if ($dataRaw != null) {
+            /* @var $requestBody Body */
+            $requestBody = $httpRequest->getBody();
+            $requestBody->append($dataRaw);
+            
+            // send raw body string as is
             return $this->sendSingleRequest($httpRequest, $response);
         }
         

@@ -12,22 +12,22 @@ interface RequestInterface
     /**
      * https://tools.ietf.org/html/rfc2616#section-9.3
      */
-    const METHOD_GET    = 'GET';
+    const METHOD_GET = 'GET';
     
     /**
      * https://tools.ietf.org/html/rfc2616#section-9.5
      */
-    const METHOD_POST   = 'POST';
+    const METHOD_POST = 'POST';
     
     /**
      * https://tools.ietf.org/html/rfc2616#section-9.6
      */
-    const METHOD_PUT    = 'PUT';
+    const METHOD_PUT = 'PUT';
     
     /**
      * https://tools.ietf.org/html/rfc5789
      */
-    const METHOD_PATCH  = 'PATCH';
+    const METHOD_PATCH = 'PATCH';
     
     /**
      * https://tools.ietf.org/html/rfc2616#section-9.7
@@ -139,6 +139,18 @@ interface RequestInterface
      * @return array
      */
     public function getData() : array;
+    
+    /**
+     * @param string $data
+     *
+     * @return RequestInterface
+     */
+    public function setDataRaw(string $data) : RequestInterface;
+    
+    /**
+     * @return string
+     */
+    public function getDataRaw() : string;
     
     /**
      * @return RequestInterface

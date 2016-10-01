@@ -55,6 +55,11 @@ class ApiRequest implements RequestInterface
     private $data = [];
     
     /**
+     * @var string
+     */
+    private $dataRaw = '';
+    
+    /**
      * @var array
      */
     private $files = [];
@@ -264,9 +269,30 @@ class ApiRequest implements RequestInterface
     /**
      * @inheritDoc
      */
+    public function setDataRaw(string $data) : RequestInterface
+    {
+        $this->dataRaw = $data;
+        
+        return $this;
+    }
+    
+    /**
+     * @inheritDoc
+     */
+    public function getDataRaw() : string
+    {
+        return $this->dataRaw;
+    }
+    
+    /**
+     * @inheritDoc
+     */
     public function resetData() : RequestInterface
     {
-        return $this->setData([]);
+        $this->data    = [];
+        $this->dataRaw = '';
+        
+        return $this;
     }
     
     /**
