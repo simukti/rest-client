@@ -19,13 +19,13 @@ Add `simukti/rest-client` to your composer.json
 
 ```
     "require": {
-        "simukti/rest-client": "^1.0.0"
+        "simukti/rest-client": "^1.1.0"
     }
 ```
 
-OR add require via composer
+OR add require latest version via inline composer command
 ```
-composer require simukti/rest-client@1.0.0 -vvv -o
+composer require simukti/rest-client -vvv -o
 ```
 
 ## REQUEST
