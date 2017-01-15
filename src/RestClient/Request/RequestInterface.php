@@ -10,6 +10,11 @@ use RestClient\Authorization\AuthorizationInterface;
 interface RequestInterface
 {
     /**
+     * https://tools.ietf.org/html/rfc2616#section-9.4
+     */
+    const METHOD_HEAD = 'HEAD';
+    
+    /**
      * https://tools.ietf.org/html/rfc2616#section-9.3
      */
     const METHOD_GET = 'GET';
