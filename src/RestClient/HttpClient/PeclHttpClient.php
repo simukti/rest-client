@@ -107,6 +107,11 @@ class PeclHttpClient implements HttpClientInterface
         // always include url queries
         $httpRequest->setQuery($request->getQuery());
         
+        // send HEAD request immediately
+        if ($method === RequestInterface::METHOD_HEAD) {
+            return $this->sendSingleRequest($httpRequest, $response);
+        }
+        
         // immediate send GET | DELETE, without further checking for form data
         if (in_array(
             $method,
