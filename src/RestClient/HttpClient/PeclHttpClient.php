@@ -197,6 +197,8 @@ class PeclHttpClient implements HttpClientInterface
             $rawResponse     = $client->getResponse($httpRequest);
             $responseHeaders = $rawResponse->getHeaders();
             $responseCode    = $rawResponse->getResponseCode();
+            /* @var $responseContent Body */
+            $responseContent = $rawResponse->getBody();
             
             /**
              * Handle gziped/deflated result
@@ -210,9 +212,9 @@ class PeclHttpClient implements HttpClientInterface
                     'deflate',
                 ]
             )) {
-                $responseContent = Inflate::decode($rawResponse->getBody()->toString());
-            } else {
-                $responseContent = $rawResponse->getBody()->toString();
+                if ($responseContent->stat()->size > 0) {
+                    $responseContent = Inflate::decode($responseContent);
+                }
             }
             
             $response->setStatusCode($responseCode)
