@@ -77,7 +77,6 @@ class ApiRequest implements RequestInterface
      */
     public function setBaseUrl(string $baseUrl) : RequestInterface
     {
-        $baseUrl = rtrim($baseUrl, '/.\\ \t\n\r\0\x0B');
         $baseUrl = trim($baseUrl);
         $url     = parse_url($baseUrl);
         $scheme  = strtolower($url['scheme']) ?? '';
