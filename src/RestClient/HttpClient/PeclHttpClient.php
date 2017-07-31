@@ -31,7 +31,7 @@ class PeclHttpClient implements HttpClientInterface
         'content_length_penalty_size' => 0,
         'pipelining_server_bl'        => null,
         'pipelining_site_bl'          => null,
-        'use_eventloop'               => true,
+        'use_eventloop'               => false,
     ];
     
     /**
